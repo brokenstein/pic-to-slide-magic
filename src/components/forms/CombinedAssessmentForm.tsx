@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Save, Printer, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import html2pdf from 'html2pdf.js';
 
 interface CombinedAssessmentFormProps {
   onBack: () => void;
@@ -14,6 +15,7 @@ interface CombinedAssessmentFormProps {
 
 export const CombinedAssessmentForm = ({ onBack }: CombinedAssessmentFormProps) => {
   const { toast } = useToast();
+  const formRef = useRef<HTMLDivElement>(null);
   
   // Combined form data for both assessments
   const [formData, setFormData] = useState({
@@ -195,22 +197,40 @@ Report generated on: ${currentDate.toLocaleString()}
     });
   };
 
-  const handleExport = () => {
-    const report = generateFormattedReport();
-    const blob = new Blob([report], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Healthcare_Assessment_${formData.name || 'Patient'}_${formData.date || new Date().toISOString().split('T')[0]}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    toast({
-      title: "Assessment Exported",
-      description: "Assessment report has been downloaded as a text file.",
-    });
+  const handleDownloadPDF = async () => {
+    if (!formRef.current) return;
+
+    const element = formRef.current;
+    const opt = {
+      margin: 0.5,
+      filename: `Healthcare_Assessment_${formData.name || 'Patient'}_${formData.date || new Date().toISOString().split('T')[0]}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { 
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#ffffff'
+      },
+      jsPDF: { 
+        unit: 'in', 
+        format: 'letter', 
+        orientation: 'portrait' 
+      }
+    };
+
+    try {
+      await html2pdf().set(opt).from(element).save();
+      toast({
+        title: "Form Downloaded",
+        description: "Assessment form has been downloaded as PDF exactly as displayed.",
+      });
+    } catch (error) {
+      toast({
+        title: "Download Error",
+        description: "There was an error downloading the form. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handlePrint = () => {
@@ -235,9 +255,9 @@ Report generated on: ${currentDate.toLocaleString()}
               <Save className="w-4 h-4" />
               Save Assessment
             </Button>
-            <Button onClick={handleExport} variant="secondary" className="flex items-center gap-2">
+            <Button onClick={handleDownloadPDF} variant="secondary" className="flex items-center gap-2">
               <Download className="w-4 h-4" />
-              Export Report
+              Download Form
             </Button>
             <Button onClick={handlePrint} variant="outline" className="flex items-center gap-2">
               <Printer className="w-4 h-4" />
@@ -246,7 +266,7 @@ Report generated on: ${currentDate.toLocaleString()}
           </div>
         </div>
 
-        <Card className="shadow-card bg-gradient-card">
+        <Card className="shadow-card bg-gradient-card" ref={formRef}>
           <CardHeader className="bg-gradient-header text-white rounded-t-lg">
             <CardTitle className="text-2xl text-center">Comprehensive Healthcare Assessment</CardTitle>
           </CardHeader>
