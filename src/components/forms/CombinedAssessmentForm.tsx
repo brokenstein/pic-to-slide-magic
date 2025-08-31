@@ -202,27 +202,31 @@ Report generated on: ${currentDate.toLocaleString()}
 
     const element = formRef.current;
     const opt = {
-      margin: 0.5,
+      margin: [0.3, 0.3, 0.3, 0.3],
       filename: `Healthcare_Assessment_${formData.name || 'Patient'}_${formData.date || new Date().toISOString().split('T')[0]}.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
+      image: { type: 'jpeg', quality: 0.95 },
       html2canvas: { 
-        scale: 2,
+        scale: 1.5,
         useCORS: true,
         allowTaint: true,
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        width: 800,
+        height: element.scrollHeight
       },
       jsPDF: { 
         unit: 'in', 
-        format: 'letter', 
-        orientation: 'portrait' 
-      }
+        format: 'a4', 
+        orientation: 'portrait',
+        compress: true
+      },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
     };
 
     try {
       await html2pdf().set(opt).from(element).save();
       toast({
         title: "Form Downloaded",
-        description: "Assessment form has been downloaded as PDF exactly as displayed.",
+        description: "Assessment form has been downloaded as PDF with optimized formatting.",
       });
     } catch (error) {
       toast({
