@@ -323,44 +323,44 @@ Report generated on: ${currentDate.toLocaleString()}
                 <h3 className="text-lg font-semibold text-medical-teal border-b border-border pb-2">Vital Signs Assessment</h3>
                 
                 {/* Vital Signs Row */}
-                <div className="grid md:grid-cols-4 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="bp" className="text-sm font-medium">BP:</Label>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                  <div className="space-y-1">
+                    <Label htmlFor="bp" className="text-xs font-medium">BP:</Label>
                     <Input
                       id="bp"
                       value={formData.bp}
                       onChange={(e) => handleInputChange('bp', e.target.value)}
-                      className="shadow-form"
+                      className="shadow-form h-8 text-sm"
                       placeholder="120/80"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="hr" className="text-sm font-medium">HR:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="hr" className="text-xs font-medium">HR:</Label>
                     <Input
                       id="hr"
                       value={formData.hr}
                       onChange={(e) => handleInputChange('hr', e.target.value)}
-                      className="shadow-form"
+                      className="shadow-form h-8 text-sm"
                       placeholder="72"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="rr" className="text-sm font-medium">RR:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="rr" className="text-xs font-medium">RR:</Label>
                     <Input
                       id="rr"
                       value={formData.rr}
                       onChange={(e) => handleInputChange('rr', e.target.value)}
-                      className="shadow-form"
+                      className="shadow-form h-8 text-sm"
                       placeholder="16"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="benefitPeriod" className="text-sm font-medium">Benefit period:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="benefitPeriod" className="text-xs font-medium">Benefit period:</Label>
                     <Input
                       id="benefitPeriod"
                       value={formData.benefitPeriod}
                       onChange={(e) => handleInputChange('benefitPeriod', e.target.value)}
-                      className="shadow-form"
+                      className="shadow-form h-8 text-sm"
                       placeholder="Benefit period"
                     />
                   </div>
