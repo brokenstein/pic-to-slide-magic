@@ -28,11 +28,12 @@ export const CombinedAssessmentForm = ({ onBack }: CombinedAssessmentFormProps) 
     bp: '',
     hr: '',
     rr: '',
-    pulseOx: '',
+    benefitPeriod: '',
     weight: '',
-    mac: '',
+    rmac: '',
     painLevel: '',
     heartEdema: '',
+    aicd: '',
     pulses: '',
     resp: '',
     breathingLungSounds: '',
@@ -98,12 +99,12 @@ VITAL SIGNS:
 BP: ${formData.bp}
 HR: ${formData.hr}
 RR: ${formData.rr}
-Pulse ox: ${formData.pulseOx}
+Benefit period: ${formData.benefitPeriod}
 
 MEASUREMENTS:
 ------------
 Weight: ${formData.weight}
-MAC: ${formData.mac}
+RMAC: ${formData.rmac}
 
 PAIN ASSESSMENT:
 ---------------
@@ -112,6 +113,7 @@ Pain Level: ${formData.painLevel}
 CARDIOVASCULAR:
 --------------
 Heart - Any Edema?: ${formData.heartEdema}
+AICD?: ${formData.aicd}
 Pulses: ${formData.pulses}
 
 RESPIRATORY:
@@ -353,13 +355,13 @@ Report generated on: ${currentDate.toLocaleString()}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="pulseOx" className="text-sm font-medium">Pulse ox:</Label>
+                    <Label htmlFor="benefitPeriod" className="text-sm font-medium">Benefit period:</Label>
                     <Input
-                      id="pulseOx"
-                      value={formData.pulseOx}
-                      onChange={(e) => handleInputChange('pulseOx', e.target.value)}
+                      id="benefitPeriod"
+                      value={formData.benefitPeriod}
+                      onChange={(e) => handleInputChange('benefitPeriod', e.target.value)}
                       className="shadow-form"
-                      placeholder="98%"
+                      placeholder="Benefit period"
                     />
                   </div>
                 </div>
@@ -377,13 +379,13 @@ Report generated on: ${currentDate.toLocaleString()}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="mac" className="text-sm font-medium">MAC:</Label>
+                    <Label htmlFor="rmac" className="text-sm font-medium">RMAC:</Label>
                     <Input
-                      id="mac"
-                      value={formData.mac}
-                      onChange={(e) => handleInputChange('mac', e.target.value)}
+                      id="rmac"
+                      value={formData.rmac}
+                      onChange={(e) => handleInputChange('rmac', e.target.value)}
                       className="shadow-form"
-                      placeholder="MAC measurement"
+                      placeholder="RMAC measurement"
                     />
                   </div>
                 </div>
@@ -409,6 +411,18 @@ Report generated on: ${currentDate.toLocaleString()}
                     onChange={(e) => handleInputChange('heartEdema', e.target.value)}
                     className="min-h-[60px] resize-none shadow-form"
                     placeholder="Cardiac assessment and edema status"
+                  />
+                </div>
+
+                {/* AICD Assessment */}
+                <div className="space-y-2">
+                  <Label htmlFor="aicd" className="text-sm font-medium">AICD?</Label>
+                  <Textarea
+                    id="aicd"
+                    value={formData.aicd}
+                    onChange={(e) => handleInputChange('aicd', e.target.value)}
+                    className="min-h-[60px] resize-none shadow-form"
+                    placeholder="AICD status and details"
                   />
                 </div>
 
