@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    allowedHosts: ["hyealth.hypersonic.network"],
+    allowedHosts: ["health.hypersonic.network"],
   },
   plugins: [
     react(),
