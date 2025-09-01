@@ -368,8 +368,8 @@ Report generated on: ${currentDate.toLocaleString()}
                   </div>
                 </div>
 
-                {/* Weight & MAC */}
-                <div className="grid md:grid-cols-2 gap-4">
+                {/* Weight, RMAC & Pain Level */}
+                <div className="grid md:grid-cols-3 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="weight" className="text-sm font-medium">Weight:</Label>
                     <Input
@@ -390,42 +390,40 @@ Report generated on: ${currentDate.toLocaleString()}
                       placeholder="RMAC measurement"
                     />
                   </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="painLevel" className="text-sm font-medium">Pain Level:</Label>
+                    <Textarea
+                      id="painLevel"
+                      value={formData.painLevel}
+                      onChange={(e) => handleInputChange('painLevel', e.target.value)}
+                      className="min-h-[60px] resize-none shadow-form"
+                      placeholder="Pain assessment (0-10 scale)"
+                    />
+                  </div>
                 </div>
 
-                {/* Pain Level */}
-                <div className="space-y-2">
-                  <Label htmlFor="painLevel" className="text-sm font-medium">Pain Level:</Label>
-                  <Textarea
-                    id="painLevel"
-                    value={formData.painLevel}
-                    onChange={(e) => handleInputChange('painLevel', e.target.value)}
-                    className="min-h-[60px] resize-none shadow-form"
-                    placeholder="Pain assessment (0-10 scale)"
-                  />
-                </div>
-
-                {/* Heart Assessment */}
-                <div className="space-y-2">
-                  <Label htmlFor="heartEdema" className="text-sm font-medium">Heart - Any Edema?</Label>
-                  <Textarea
-                    id="heartEdema"
-                    value={formData.heartEdema}
-                    onChange={(e) => handleInputChange('heartEdema', e.target.value)}
-                    className="min-h-[60px] resize-none shadow-form"
-                    placeholder="Cardiac assessment and edema status"
-                  />
-                </div>
-
-                {/* AICD Assessment */}
-                <div className="space-y-2">
-                  <Label htmlFor="aicd" className="text-sm font-medium">AICD?</Label>
-                  <Textarea
-                    id="aicd"
-                    value={formData.aicd}
-                    onChange={(e) => handleInputChange('aicd', e.target.value)}
-                    className="min-h-[60px] resize-none shadow-form"
-                    placeholder="AICD status and details"
-                  />
+                {/* Heart & AICD Assessment */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="heartEdema" className="text-sm font-medium">Heart - Any Edema?</Label>
+                    <Textarea
+                      id="heartEdema"
+                      value={formData.heartEdema}
+                      onChange={(e) => handleInputChange('heartEdema', e.target.value)}
+                      className="min-h-[60px] resize-none shadow-form"
+                      placeholder="Cardiac assessment and edema status"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="aicd" className="text-sm font-medium">AICD?</Label>
+                    <Textarea
+                      id="aicd"
+                      value={formData.aicd}
+                      onChange={(e) => handleInputChange('aicd', e.target.value)}
+                      className="min-h-[60px] resize-none shadow-form"
+                      placeholder="AICD status and details"
+                    />
+                  </div>
                 </div>
 
                 {/* Pulses and Respiratory */}
@@ -452,28 +450,29 @@ Report generated on: ${currentDate.toLocaleString()}
                   </div>
                 </div>
 
-                {/* Breathing assessments */}
+                {/* Breathing & Oxygen assessments */}
                 <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="breathingLungSounds" className="text-sm font-medium">Breathing - Lung sounds:</Label>
-                    <Textarea
-                      id="breathingLungSounds"
-                      value={formData.breathingLungSounds}
-                      onChange={(e) => handleInputChange('breathingLungSounds', e.target.value)}
-                      className="min-h-[60px] resize-none shadow-form"
-                      placeholder="Lung sounds assessment"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="oxygenUse" className="text-sm font-medium">Oxygen use:</Label>
-                    <Textarea
-                      id="oxygenUse"
-                      value={formData.oxygenUse}
-                      onChange={(e) => handleInputChange('oxygenUse', e.target.value)}
-                      className="min-h-[60px] resize-none shadow-form"
-                      placeholder="Oxygen therapy details"
-                    />
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="breathingLungSounds" className="text-sm font-medium">Breathing - Lung sounds:</Label>
+                      <Textarea
+                        id="breathingLungSounds"
+                        value={formData.breathingLungSounds}
+                        onChange={(e) => handleInputChange('breathingLungSounds', e.target.value)}
+                        className="min-h-[60px] resize-none shadow-form"
+                        placeholder="Lung sounds assessment"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="oxygenUse" className="text-sm font-medium">Oxygen use:</Label>
+                      <Textarea
+                        id="oxygenUse"
+                        value={formData.oxygenUse}
+                        onChange={(e) => handleInputChange('oxygenUse', e.target.value)}
+                        className="min-h-[60px] resize-none shadow-form"
+                        placeholder="Oxygen therapy details"
+                      />
+                    </div>
                   </div>
 
                   <div className="space-y-2">
@@ -703,20 +702,18 @@ Report generated on: ${currentDate.toLocaleString()}
                   </div>
                 </div>
 
-                {/* Skin Assessment */}
-                <div className="space-y-2">
-                  <Label htmlFor="skin" className="text-sm font-medium">Skin:</Label>
-                  <Textarea
-                    id="skin"
-                    value={formData.skin}
-                    onChange={(e) => handleInputChange('skin', e.target.value)}
-                    className="min-h-[60px] resize-none shadow-form"
-                    placeholder="Skin assessment notes..."
-                  />
-                </div>
-
-                {/* Wound Care & Blood Sugar */}
-                <div className="grid md:grid-cols-3 gap-3">
+                {/* Skin, Wound Care, Blood Sugar & Ulcer Risk */}
+                <div className="grid md:grid-cols-4 gap-3">
+                  <div className="space-y-1">
+                    <Label htmlFor="skin" className="text-xs font-medium">Skin:</Label>
+                    <Textarea
+                      id="skin"
+                      value={formData.skin}
+                      onChange={(e) => handleInputChange('skin', e.target.value)}
+                      className="min-h-[60px] resize-none shadow-form text-sm"
+                      placeholder="Skin assessment..."
+                    />
+                  </div>
                   <div className="space-y-1">
                     <Label htmlFor="wounds" className="text-xs font-medium">Wounds:</Label>
                     <Textarea
