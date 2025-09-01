@@ -279,7 +279,7 @@ Report generated on: ${currentDate.toLocaleString()}
             <CardTitle className="text-2xl text-center">Comprehensive Healthcare Assessment</CardTitle>
           </CardHeader>
           <CardContent className="p-8">
-            <div className="grid gap-8">
+            <div className="grid gap-4">
               
               {/* Patient Information Section */}
               <div className="space-y-4">
@@ -321,7 +321,7 @@ Report generated on: ${currentDate.toLocaleString()}
               <Separator />
 
               {/* Vital Signs Assessment Section */}
-              <div className="space-y-6">
+              <div className="space-y-3">
                 <h3 className="text-lg font-semibold text-medical-teal border-b border-border pb-2">Vital Signs Assessment</h3>
                 
                 {/* Vital Signs Row */}
@@ -475,30 +475,33 @@ Report generated on: ${currentDate.toLocaleString()}
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="shortnessOfBreath" className="text-sm font-medium">Shortness of breath:</Label>
-                    <Textarea
-                      id="shortnessOfBreath"
-                      value={formData.shortnessOfBreath}
-                      onChange={(e) => handleInputChange('shortnessOfBreath', e.target.value)}
-                      className="min-h-[60px] resize-none shadow-form"
-                      placeholder="Dyspnea assessment"
-                    />
+                  {/* Shortness of breath and GI Assessment */}
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="shortnessOfBreath" className="text-sm font-medium">Shortness of breath:</Label>
+                      <Textarea
+                        id="shortnessOfBreath"
+                        value={formData.shortnessOfBreath}
+                        onChange={(e) => handleInputChange('shortnessOfBreath', e.target.value)}
+                        className="min-h-[60px] resize-none shadow-form"
+                        placeholder="Dyspnea assessment"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="giIncontinentBladderBowel" className="text-sm font-medium">GI - Incontinent bladder and/or bowel:</Label>
+                      <Textarea
+                        id="giIncontinentBladderBowel"
+                        value={formData.giIncontinentBladderBowel}
+                        onChange={(e) => handleInputChange('giIncontinentBladderBowel', e.target.value)}
+                        className="min-h-[60px] resize-none shadow-form"
+                        placeholder="Continence status"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                {/* GI Assessment */}
+                {/* GI Assessment continued */}
                 <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="giIncontinentBladderBowel" className="text-sm font-medium">GI - Incontinent bladder and/or bowel:</Label>
-                    <Textarea
-                      id="giIncontinentBladderBowel"
-                      value={formData.giIncontinentBladderBowel}
-                      onChange={(e) => handleInputChange('giIncontinentBladderBowel', e.target.value)}
-                      className="min-h-[60px] resize-none shadow-form"
-                      placeholder="Continence status"
-                    />
-                  </div>
 
                   {/* Last BM, Bowel sounds */}
                   <div className="grid md:grid-cols-2 gap-4">
@@ -611,8 +614,8 @@ Report generated on: ${currentDate.toLocaleString()}
               <Separator />
 
               {/* ADL Assessment Section */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-medical-blue border-b border-border pb-2">ADL's Assessment</h3>
+              <div className="space-y-3">
+                <h3 className="text-lg font-semibold text-medical-blue border-b border-border pb-1">ADL's Assessment</h3>
                 
                 {/* Mobility & Transfers */}
                 <div className="grid md:grid-cols-4 gap-3">
