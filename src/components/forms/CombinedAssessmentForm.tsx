@@ -612,206 +612,201 @@ Report generated on: ${currentDate.toLocaleString()}
               <Separator />
 
               {/* ADL Assessment Section */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-medical-blue border-b border-border pb-2">ADL's Assessment</h3>
                 
                 {/* Mobility & Transfers */}
-                <div className="grid md:grid-cols-4 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="ambulation" className="text-sm font-medium">Ambulation:</Label>
+                <div className="grid md:grid-cols-4 gap-3">
+                  <div className="space-y-1">
+                    <Label htmlFor="ambulation" className="text-xs font-medium">Ambulation:</Label>
                     <Textarea
                       id="ambulation"
                       value={formData.ambulation}
                       onChange={(e) => handleInputChange('ambulation', e.target.value)}
-                      className="min-h-[80px] resize-none shadow-form"
+                      className="min-h-[60px] resize-none shadow-form text-sm"
                       placeholder="Assessment notes..."
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="bedMobility" className="text-sm font-medium">Bed Mob:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="bedMobility" className="text-xs font-medium">Bed Mob:</Label>
                     <Textarea
                       id="bedMobility"
                       value={formData.bedMobility}
                       onChange={(e) => handleInputChange('bedMobility', e.target.value)}
-                      className="min-h-[80px] resize-none shadow-form"
+                      className="min-h-[60px] resize-none shadow-form text-sm"
                       placeholder="Assessment notes..."
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="transfer" className="text-sm font-medium">Transfer:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="transfer" className="text-xs font-medium">Transfer:</Label>
                     <Textarea
                       id="transfer"
                       value={formData.transfer}
                       onChange={(e) => handleInputChange('transfer', e.target.value)}
-                      className="min-h-[80px] resize-none shadow-form"
+                      className="min-h-[60px] resize-none shadow-form text-sm"
                       placeholder="Assessment notes..."
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="toileting" className="text-sm font-medium">Toileting:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="toileting" className="text-xs font-medium">Toileting:</Label>
                     <Textarea
                       id="toileting"
                       value={formData.toileting}
                       onChange={(e) => handleInputChange('toileting', e.target.value)}
-                      className="min-h-[80px] resize-none shadow-form"
+                      className="min-h-[60px] resize-none shadow-form text-sm"
                       placeholder="Assessment notes..."
                     />
                   </div>
                 </div>
 
-                {/* Personal Care */}
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="dressing" className="text-sm font-medium">Dressing:</Label>
+                {/* Personal Care & Performance Status */}
+                <div className="grid md:grid-cols-4 gap-3">
+                  <div className="space-y-1">
+                    <Label htmlFor="dressing" className="text-xs font-medium">Dressing:</Label>
                     <Textarea
                       id="dressing"
                       value={formData.dressing}
                       onChange={(e) => handleInputChange('dressing', e.target.value)}
-                      className="min-h-[80px] resize-none shadow-form"
+                      className="min-h-[60px] resize-none shadow-form text-sm"
                       placeholder="Assessment notes..."
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="bathing" className="text-sm font-medium">Bathing:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="bathing" className="text-xs font-medium">Bathing:</Label>
                     <Textarea
                       id="bathing"
                       value={formData.bathing}
                       onChange={(e) => handleInputChange('bathing', e.target.value)}
-                      className="min-h-[80px] resize-none shadow-form"
+                      className="min-h-[60px] resize-none shadow-form text-sm"
                       placeholder="Assessment notes..."
                     />
                   </div>
-                </div>
-
-                {/* Performance Status */}
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="ppsPercentage" className="text-sm font-medium">PPS%:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="ppsPercentage" className="text-xs font-medium">PPS%:</Label>
                     <Textarea
                       id="ppsPercentage"
                       value={formData.ppsPercentage}
                       onChange={(e) => handleInputChange('ppsPercentage', e.target.value)}
-                      className="min-h-[80px] resize-none shadow-form"
+                      className="min-h-[60px] resize-none shadow-form text-sm"
                       placeholder="Assessment notes..."
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="palliativePerformance" className="text-sm font-medium">Palliative Performance:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="palliativePerformance" className="text-xs font-medium">Palliative Performance:</Label>
                     <Textarea
                       id="palliativePerformance"
                       value={formData.palliativePerformance}
                       onChange={(e) => handleInputChange('palliativePerformance', e.target.value)}
-                      className="min-h-[80px] resize-none shadow-form"
+                      className="min-h-[60px] resize-none shadow-form text-sm"
                       placeholder="Assessment notes..."
                     />
                   </div>
                 </div>
 
-                {/* Skin & Wound Care */}
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="skin" className="text-sm font-medium">Skin:</Label>
-                    <Textarea
-                      id="skin"
-                      value={formData.skin}
-                      onChange={(e) => handleInputChange('skin', e.target.value)}
-                      className="min-h-[100px] resize-none shadow-form"
-                      placeholder="Assessment notes..."
-                    />
-                  </div>
+                {/* Skin Assessment */}
+                <div className="space-y-2">
+                  <Label htmlFor="skin" className="text-sm font-medium">Skin:</Label>
+                  <Textarea
+                    id="skin"
+                    value={formData.skin}
+                    onChange={(e) => handleInputChange('skin', e.target.value)}
+                    className="min-h-[60px] resize-none shadow-form"
+                    placeholder="Skin assessment notes..."
+                  />
+                </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="wounds" className="text-sm font-medium">Wounds:</Label>
+                {/* Wound Care & Blood Sugar */}
+                <div className="grid md:grid-cols-3 gap-3">
+                  <div className="space-y-1">
+                    <Label htmlFor="wounds" className="text-xs font-medium">Wounds:</Label>
                     <Textarea
                       id="wounds"
                       value={formData.wounds}
                       onChange={(e) => handleInputChange('wounds', e.target.value)}
-                      className="min-h-[100px] resize-none shadow-form"
-                      placeholder="Assessment notes..."
+                      className="min-h-[60px] resize-none shadow-form text-sm"
+                      placeholder="Wound assessment..."
                     />
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="bloodSugar" className="text-sm font-medium">Blood Sugar:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="bloodSugar" className="text-xs font-medium">Blood Sugar:</Label>
                     <Textarea
                       id="bloodSugar"
                       value={formData.bloodSugar}
                       onChange={(e) => handleInputChange('bloodSugar', e.target.value)}
-                      className="min-h-[100px] resize-none shadow-form"
-                      placeholder="Blood sugar levels and assessment notes..."
+                      className="min-h-[60px] resize-none shadow-form text-sm"
+                      placeholder="Blood sugar levels..."
                     />
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="ulcerRiskManagement" className="text-sm font-medium">Ulcer risk management:</Label>
+                  <div className="space-y-1">
+                    <Label htmlFor="ulcerRiskManagement" className="text-xs font-medium">Ulcer risk management:</Label>
                     <Textarea
                       id="ulcerRiskManagement"
                       value={formData.ulcerRiskManagement}
                       onChange={(e) => handleInputChange('ulcerRiskManagement', e.target.value)}
-                      className="min-h-[100px] resize-none shadow-form"
-                      placeholder="Assessment notes..."
+                      className="min-h-[60px] resize-none shadow-form text-sm"
+                      placeholder="Ulcer risk notes..."
                     />
                   </div>
                 </div>
 
                 {/* Care Coordination */}
-                <div className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="teaching" className="text-sm font-medium">Teaching:</Label>
                     <Textarea
                       id="teaching"
                       value={formData.teaching}
                       onChange={(e) => handleInputChange('teaching', e.target.value)}
-                      className="min-h-[100px] resize-none shadow-form"
-                      placeholder="Assessment notes..."
+                      className="min-h-[60px] resize-none shadow-form"
+                      placeholder="Teaching provided..."
                     />
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="supervision" className="text-sm font-medium">Supervision:</Label>
                     <Textarea
                       id="supervision"
                       value={formData.supervision}
                       onChange={(e) => handleInputChange('supervision', e.target.value)}
-                      className="min-h-[100px] resize-none shadow-form"
-                      placeholder="Assessment notes..."
+                      className="min-h-[60px] resize-none shadow-form"
+                      placeholder="Supervision notes..."
                     />
                   </div>
+                </div>
 
+                {/* Communication */}
+                <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="notes" className="text-sm font-medium">Notes:</Label>
+                    <Label htmlFor="spokeWith" className="text-sm font-medium">Spoke with:</Label>
                     <Textarea
-                      id="notes"
-                      value={formData.notes}
-                      onChange={(e) => handleInputChange('notes', e.target.value)}
-                      className="min-h-[120px] resize-none shadow-form"
-                      placeholder="Additional notes..."
+                      id="spokeWith"
+                      value={formData.spokeWith}
+                      onChange={(e) => handleInputChange('spokeWith', e.target.value)}
+                      className="min-h-[50px] resize-none shadow-form"
+                      placeholder="Person contacted..."
                     />
                   </div>
-
-                  {/* Communication */}
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="spokeWith" className="text-sm font-medium">Spoke with:</Label>
-                      <Textarea
-                        id="spokeWith"
-                        value={formData.spokeWith}
-                        onChange={(e) => handleInputChange('spokeWith', e.target.value)}
-                        className="min-h-[80px] resize-none shadow-form"
-                        placeholder="Person contacted..."
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="careCoordinator" className="text-sm font-medium">Care Coordinator?</Label>
-                      <Textarea
-                        id="careCoordinator"
-                        value={formData.careCoordinator}
-                        onChange={(e) => handleInputChange('careCoordinator', e.target.value)}
-                        className="min-h-[80px] resize-none shadow-form"
-                        placeholder="Care coordinator details..."
-                      />
-                    </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="careCoordinator" className="text-sm font-medium">Care Coordinator?</Label>
+                    <Textarea
+                      id="careCoordinator"
+                      value={formData.careCoordinator}
+                      onChange={(e) => handleInputChange('careCoordinator', e.target.value)}
+                      className="min-h-[50px] resize-none shadow-form"
+                      placeholder="Care coordinator details..."
+                    />
                   </div>
+                </div>
+
+                {/* Notes */}
+                <div className="space-y-2">
+                  <Label htmlFor="notes" className="text-sm font-medium">Notes:</Label>
+                  <Textarea
+                    id="notes"
+                    value={formData.notes}
+                    onChange={(e) => handleInputChange('notes', e.target.value)}
+                    className="min-h-[80px] resize-none shadow-form"
+                    placeholder="Additional notes..."
+                  />
                 </div>
               </div>
             </div>
