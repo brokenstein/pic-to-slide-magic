@@ -61,6 +61,7 @@ export const CombinedAssessmentForm = ({ onBack }: CombinedAssessmentFormProps) 
     palliativePerformance: '',
     skin: '',
     wounds: '',
+    bloodSugar: '',
     ulcerRiskManagement: '',
     teaching: '',
     supervision: '',
@@ -169,6 +170,7 @@ SKIN & WOUND CARE:
 -----------------
 Skin: ${formData.skin}
 Wounds: ${formData.wounds}
+Blood Sugar: ${formData.bloodSugar}
 Ulcer risk management: ${formData.ulcerRiskManagement}
 
 CARE COORDINATION:
@@ -726,6 +728,17 @@ Report generated on: ${currentDate.toLocaleString()}
                       onChange={(e) => handleInputChange('wounds', e.target.value)}
                       className="min-h-[100px] resize-none shadow-form"
                       placeholder="Assessment notes..."
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="bloodSugar" className="text-sm font-medium">Blood Sugar:</Label>
+                    <Textarea
+                      id="bloodSugar"
+                      value={formData.bloodSugar}
+                      onChange={(e) => handleInputChange('bloodSugar', e.target.value)}
+                      className="min-h-[100px] resize-none shadow-form"
+                      placeholder="Blood sugar levels and assessment notes..."
                     />
                   </div>
 
