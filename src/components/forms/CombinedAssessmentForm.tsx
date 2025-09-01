@@ -204,21 +204,21 @@ Report generated on: ${currentDate.toLocaleString()}
 
     const element = formRef.current;
     const opt = {
-      margin: [0.3, 0.3, 0.3, 0.3],
+      margin: [0.2, 0.2, 0.2, 0.2],
       filename: `Healthcare_Assessment_${formData.name || 'Patient'}_${formData.date || new Date().toISOString().split('T')[0]}.pdf`,
       image: { type: 'jpeg', quality: 0.95 },
       html2canvas: { 
-        scale: 1.5,
+        scale: 1.2,
         useCORS: true,
         allowTaint: true,
         backgroundColor: '#ffffff',
-        width: 800,
+        width: 1100,
         height: element.scrollHeight
       },
       jsPDF: { 
         unit: 'in', 
         format: 'a4', 
-        orientation: 'portrait',
+        orientation: 'landscape',
         compress: true
       },
       pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
